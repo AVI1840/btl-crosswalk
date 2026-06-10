@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://forum-barak.github.io/btl-crosswalk",
+  "homepage": "https://AVI1840.github.io/btl-crosswalk",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
