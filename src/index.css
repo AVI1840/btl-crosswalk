@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-only { display: block !important; }
+}
+
+.print-only { display: none; }
+
+/* RTL fixes for range inputs */
+input[type="range"] {
+  direction: ltr;
+}
+
+/* Transition utilities */
+.tab-transition {
+  transition: all 0.15s ease;
+}
+
+/* Presentation mode animations */
+@keyframes highlight-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31, 56, 100, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(31, 56, 100, 0.15); }
+}
+
+.animate-highlight-fields > div {
+  animation: highlight-pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
