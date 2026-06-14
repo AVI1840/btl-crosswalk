@@ -96,7 +96,10 @@ export default function App() {
       {/* Content */}
       <main className="max-w-7xl mx-auto px-4 py-6">
         {activeTab === 'assessment' && (
-          <Tab1Assessment data={data} onChange={setData} />
+          <Tab1Assessment data={data} onChange={setData} onNavigateToResults={() => {
+            setActiveTab('translation');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }} />
         )}
         {activeTab === 'translation' && (
           <Tab2Translation data={data} result={result} presentationMode={presentationMode} />

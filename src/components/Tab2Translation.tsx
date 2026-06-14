@@ -73,9 +73,49 @@ function GapItem({ gap }: { gap: TranslationResult['gaps'][0] }) {
 }
 
 export function Tab2Translation({ result, presentationMode }: Props) {
+  const confLabel = result.overallConfidence === 'high' ? 'גבוהה'
+    : result.overallConfidence === 'medium' ? 'בינונית'
+    : result.overallConfidence === 'low' ? 'נמוכה' : 'דורש מחקר';
+
   return (
     <div className="space-y-6">
-      {/* Presentation mode summary sentence */}
+      {/* FIX 2: Verdict card — always visible, first thing */}
+      <div className="border-2 border-[#1F3864] rounded-xl p-6 bg-white shadow-md">
+        <div className="text-center space-y-3">
+          <p className="text-sm text-gray-600 font-medium">ניקוד BTL משוער</p>
+          <p className="text-4xl font-bold text-[#1F3864]">{result.totalPoints} נקודות</p>
+          <p className="text-2xl font-bold text-[#1F3864]">
+            רמת זכאות: {result.eligibilityLabel}
+            {result.hoursPerWeek !== null && result.hoursPerWeek > 0 && (
+              <span className="text-lg font-medium text-gray-600"> (~{result.hoursPerWeek} ש'/שבוע)</span>
+            )}
+          </p>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-sm text-gray-600">רמת אמינות:</span>
+            <ConfidenceBadge level={result.overallConfidence} size="md" />
+          </div>
+          {result.gaps.some(g => g.type === 'red' || g.type === 'yellow') && (
+            <p className="text-sm text-amber-700 bg-amber-50 inline-block px-3 py-1 rounded-lg">
+              ⚠️ יש פערים בנתונים — יש לבחון
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* FIX 3: Plain Hebrew explanation */}
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+        <p className="text-sm text-gray-800 leading-relaxed">
+          על בסיס הנתונים שהוזנו, הניקוד המשוער בסולם בט"ל הוא <strong>{result.totalPoints} נקודות</strong>,
+          המתאים לרמת זכאות <strong>{result.eligibilityLabel}</strong>
+          {result.hoursPerWeek !== null && result.hoursPerWeek > 0 && (
+            <span> (~{result.hoursPerWeek} שעות שבועיות)</span>
+          )}.
+          <br />
+          <span className="text-xs text-gray-500 mt-1 inline-block">המערכת אינה מחליפה הערכת בט"ל רשמית.</span>
+        </p>
+      </div>
+
+      {/* Presentation mode extra banner */}
       {presentationMode && (
         <div className="bg-gradient-to-l from-primary/5 to-primary/10 border border-primary/20 rounded-xl p-5 text-center">
           <p className="text-lg font-semibold text-primary">

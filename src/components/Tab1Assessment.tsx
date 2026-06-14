@@ -14,6 +14,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 interface Props {
   data: AssessmentInput;
   onChange: (data: AssessmentInput) => void;
+  onNavigateToResults?: () => void;
 }
 
 function Section({ title, open, onToggle, children, show = true }: {
@@ -34,7 +35,7 @@ function Section({ title, open, onToggle, children, show = true }: {
   );
 }
 
-export function Tab1Assessment({ data, onChange }: Props) {
+export function Tab1Assessment({ data, onChange, onNavigateToResults }: Props) {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     adl: true, cognition: true, iadl: false, emotional: false, falls: false, supervision: true,
   });
@@ -418,6 +419,17 @@ export function Tab1Assessment({ data, onChange }: Props) {
             )}
           </div>
         </Section>
+
+        {/* CTA Button — navigate to results */}
+        {onNavigateToResults && (
+          <button
+            onClick={onNavigateToResults}
+            className="w-full mt-6 py-4 rounded-xl text-white text-lg font-bold shadow-lg hover:opacity-90 transition-all hover:scale-[1.01] active:scale-[0.99]"
+            style={{ backgroundColor: '#1F3864' }}
+          >
+            ראה תוצאת תרגום לבט"ל ←
+          </button>
+        )}
       </div>
     </div>
   );
