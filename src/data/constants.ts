@@ -229,11 +229,11 @@ export interface EligibilityLevel {
 
 export const ELIGIBILITY_LEVELS: EligibilityLevel[] = [
   { minPoints: 0, maxPoints: 1.49, level: 0, hoursPerWeek: 0, label: 'אינו זכאי' },
-  { minPoints: 1.5, maxPoints: 2.49, level: 1, hoursPerWeek: 5, label: 'רמה א\'' },
-  { minPoints: 2.5, maxPoints: 3.49, level: 2, hoursPerWeek: 10, label: 'רמה ב\'' },
-  { minPoints: 3.5, maxPoints: 4.49, level: 3, hoursPerWeek: 16, label: 'רמה ג\'' },
-  { minPoints: 4.5, maxPoints: 5.49, level: 4, hoursPerWeek: 22, label: 'רמה ד\'' },
-  { minPoints: 5.5, maxPoints: 6.99, level: 5, hoursPerWeek: 30, label: 'רמה ה\'' },
+  { minPoints: 1.5, maxPoints: 2.49, level: 1, hoursPerWeek: 5, label: 'רמה 1' },
+  { minPoints: 2.5, maxPoints: 3.49, level: 2, hoursPerWeek: 10, label: 'רמה 2' },
+  { minPoints: 3.5, maxPoints: 4.49, level: 3, hoursPerWeek: 16, label: 'רמה 3' },
+  { minPoints: 4.5, maxPoints: 5.49, level: 4, hoursPerWeek: 22, label: 'רמה 4' },
+  { minPoints: 5.5, maxPoints: 6.99, level: 5, hoursPerWeek: 30, label: 'רמה 5' },
   { minPoints: 7.0, maxPoints: 99, level: 6, hoursPerWeek: null, label: 'סיעוד מלא' },
 ];
 

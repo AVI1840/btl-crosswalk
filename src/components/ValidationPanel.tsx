@@ -33,7 +33,7 @@ const TEST_CASES: TestCase[] = [
       fallsLastYear: '1',
     },
     expectedTotalPoints: 3.5,
-    expectedLabel: 'רמה ג\'',
+    expectedLabel: 'רמה 3',
   },
   {
     name: 'יוסף, 84, דמנציה בינונית',
@@ -50,7 +50,7 @@ const TEST_CASES: TestCase[] = [
       fallsLastYear: 'none',
     },
     expectedTotalPoints: 8,
-    expectedLabel: 'רמה ה\'',
+    expectedLabel: 'רמה 5',
   },
   {
     name: 'רות, 91, תלויה מלאה',
@@ -84,7 +84,7 @@ const TEST_CASES: TestCase[] = [
       fallsLastYear: 'none',
     },
     expectedTotalPoints: 1.5,
-    expectedLabel: 'רמה א\'',
+    expectedLabel: 'רמה 1',
   },
 ];
 
